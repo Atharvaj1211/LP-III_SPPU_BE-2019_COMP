@@ -1,0 +1,50 @@
+DAA PR1: Fibonacci Series Iterative and Recursive 
+
+package Finals;
+
+import java.util.Scanner;
+
+public class Fibonacci {
+    public static void fibonacciIteratively(int n){
+        int num1=0;
+        int num2 = 1;
+        int fib =0;
+        int Count =0;
+
+        System.out.println("Finals.fibonacci Iterativerly");
+        for (int i = 0; i < n; i++) {
+            System.out.println(""+num1);
+            fib = num1 + num2;
+            num1 = num2;
+            num2 = fib;
+            Count++;
+        }
+        System.out.println("\n Step Count(Iterative) :"+Count);
+    }
+
+    public static int fibonacciRecursivey(int n,int[] counter){
+        counter[0]++;
+        if(n<=1){
+            return n;
+        }
+        return fibonacciRecursivey(n-1,counter)+fibonacciRecursivey(n-2,counter);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number");
+        int n = sc.nextInt();
+        fibonacciIteratively(n);
+
+
+        System.out.println("Recursively fibonacci");
+        int[] counter ={0};
+        for (int i = 0; i < n; i++) {
+            System.out.println(""+fibonacciRecursivey(i,counter));
+        }
+        System.out.println("\n Step Count (Recursive) "+counter[0]);
+
+    }
+}
+
+
